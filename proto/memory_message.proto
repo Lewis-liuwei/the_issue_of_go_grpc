@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package study.proto;
+option go_package = "pb";
+// 内存 使用枚举
+message Memory {
+  enum Unit {
+    UNKNOWN = 0;
+    BIT = 1;      // 位
+    BYTE = 2;     // 字节
+    KILOBYTE = 3; // 千字节
+    MEGABYTE = 4; //兆字节
+    GIGABYTE = 5; //千兆字节
+    TERABYTE = 6; //太字节
+  }
+  uint64 value = 1; // 值字段da
+  Unit unit = 2;    // 单位字段
+}

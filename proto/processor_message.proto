@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package study.proto; // 针对golang语言中的包名
+import "memory_message.proto";
+option go_package = "pb"; // 设置转译后go文件目录
+
+// cpu 中央处理器
+message CPU {
+  string brand = 1;          // 品牌
+  string name = 2;           // 名称
+  uint32 number_cores = 3;   // 内核数
+  uint32 number_threads = 4; // 线程数
+  double min_ghz = 5;        // 最小频率
+  double max_ghz = 6;        // 最大频率
+}
+
+//图形处理器 与CPU不同的是它有自己的内存
+message GPU {
+  string brand = 1;
+  string name = 2;
+  double min_ghz = 3;
+  double max_ghz = 4;
+  Memory memory = 5; // 分配内存
+}

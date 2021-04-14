@@ -273,7 +273,7 @@ func (m *Laptop) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	}
 	if m.UpdatedAt != nil {
 		{
-			size, err := m.UpdatedAt.MarshalToSizedBuffer(dAtA[:i])
+			size, err := m.MarshalToSizedBuffer(dAtA[:i])
 			if err != nil {
 				return 0, err
 			}
@@ -496,7 +496,7 @@ func (m *Laptop) Size() (n int) {
 		n += 1 + sovLaptopMessage(uint64(m.ReleaseYear))
 	}
 	if m.UpdatedAt != nil {
-		l = m.UpdatedAt.Size()
+		l = m.Size()
 		n += 1 + l + sovLaptopMessage(uint64(l))
 	}
 	if m.XXX_unrecognized != nil {
@@ -951,7 +951,7 @@ func (m *Laptop) Unmarshal(dAtA []byte) error {
 			if m.UpdatedAt == nil {
 				m.UpdatedAt = &timestamppb.Timestamp{}
 			}
-			if err := m.UpdatedAt.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+			if err := m.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
 				return err
 			}
 			iNdEx = postIndex

@@ -12,6 +12,6 @@ proto/*.proto 该文件夹内的文件
 --gofast_out=plugins=grpc:路径 将协议缓冲区代码转译后存储的路径设置
 */
 func main() {
-	kb := sample.NewKeyboard()
-	fmt.Printf("%v\n", kb)
+	laptop := sample.NewLaptop()
+	fmt.Printf("%v\n", laptop)
 }

@@ -1,0 +1,62 @@
+{
+  "id": "379a5b6a-68f6-4d4e-875e-744028754eb4",
+  "brand": "Apple",
+  "name": "Macbook Air",
+  "cpu": {
+    "brand": "AMD",
+    "name": "RYzen 3 PRO 3200GE",
+    "number_cores": 5,
+    "number_threads": 6,
+    "min_ghz": 2.4048245462571427,
+    "max_ghz": 2.6615677626196463
+  },
+  "ram": {
+    "value": "46",
+    "unit": "GIGABYTE"
+  },
+  "gpus": [
+    {
+      "brand": "NVIDIA",
+      "name": "RTX 2060",
+      "min_ghz": 1.4607900967175762,
+      "max_ghz": 1.8287793624286306,
+      "memory": {
+        "value": "3",
+        "unit": "GIGABYTE"
+      }
+    }
+  ],
+  "storages": [
+    {
+      "driver": "SSD",
+      "memory": {
+        "value": "210",
+        "unit": "GIGABYTE"
+      }
+    },
+    {
+      "driver": "HDD",
+      "memory": {
+        "value": "6",
+        "unit": "TERABYTE"
+      }
+    }
+  ],
+  "screen": {
+    "size_inch": 13.886261,
+    "resolution": {
+      "width": 7280,
+      "height": 4095
+    },
+    "panel": "OLED",
+    "multitouch": true
+  },
+  "keyboard": {
+    "layout": "AZERTY",
+    "blacklit": true
+  },
+  "weight_kg": 2.1057950266817644,
+  "price_usd": 2506.911376317174,
+  "release_year": 2015,
+  "updated_at": "2021-04-16T02:12:28.812423949Z"
+}

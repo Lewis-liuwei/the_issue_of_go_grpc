@@ -3,9 +3,15 @@ package sample
 import (
 	"go_grpc/pb"
 	"math/rand"
+	"time"
 
 	"github.com/google/uuid"
 )
+
+// 提示rand使用当前额unix	nano作为种子值
+func init() {
+	rand.Seed(time.Now().UnixNano())
+}
 
 // 随机一个键盘样式
 func randomKeyboardLayout() pb.Keyboard_Layout {

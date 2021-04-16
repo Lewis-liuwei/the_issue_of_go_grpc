@@ -5,7 +5,7 @@ import (
 	"github.com/golang/protobuf/proto"
 )
 
-// 将protobuf信息数据转换成json数据
+// 将protobuf信息数据转换成jso
 func ProtobufToJson(message proto.Message) (string, error) {
 	marshaler := jsonpb.Marshaler{
 		EnumsAsInts:  false, // 是否将枚举值用int/string类型数值代替

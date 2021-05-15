@@ -5,14 +5,22 @@ package study.proto;
 option go_package = "pb";
 
 import "laptop_message.proto";
+import "filter_message.proto";
 
 // 创建一个请求
 message CreatLaptopRequest { Laptop laptop = 1; }
+// 搜索请求
+message SearchLaptopRequest { Filter filter = 1; }
 
 // 创建一个响应
 message CreateLaptopReaponse { string id = 1; }
+// 搜索响应笔记本电脑信息
+message SearchLaptopResponse { Laptop laptop = 1; }
 
 // 创建一个rpc服务
 service LaptopService {
+  // 添加笔记本电脑信息的服务
   rpc CreatLaptop(CreatLaptopRequest) returns (CreateLaptopReaponse) {}
+  // 搜索笔记本电脑信息的服务, 以流的方式返回数据
+  rpc SearchLaptop(SearchLaptopRequest) returns (stream SearchLaptopResponse) {}
 }

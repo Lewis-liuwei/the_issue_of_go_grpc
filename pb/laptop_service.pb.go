@@ -74,6 +74,54 @@ func (m *CreatLaptopRequest) GetLaptop() *Laptop {
 	return nil
 }
 
+// 搜索请求
+type SearchLaptopRequest struct {
+	Filter               *Filter  `protobuf:"bytes,1,opt,name=filter,proto3" json:"filter,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *SearchLaptopRequest) Reset()         { *m = SearchLaptopRequest{} }
+func (m *SearchLaptopRequest) String() string { return proto.CompactTextString(m) }
+func (*SearchLaptopRequest) ProtoMessage()    {}
+func (*SearchLaptopRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_240c60d9fb227e71, []int{1}
+}
+func (m *SearchLaptopRequest) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *SearchLaptopRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_SearchLaptopRequest.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *SearchLaptopRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_SearchLaptopRequest.Merge(m, src)
+}
+func (m *SearchLaptopRequest) XXX_Size() int {
+	return m.Size()
+}
+func (m *SearchLaptopRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_SearchLaptopRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_SearchLaptopRequest proto.InternalMessageInfo
+
+func (m *SearchLaptopRequest) GetFilter() *Filter {
+	if m != nil {
+		return m.Filter
+	}
+	return nil
+}
+
 // 创建一个响应
 type CreateLaptopReaponse struct {
 	Id                   string   `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
@@ -86,7 +134,7 @@ func (m *CreateLaptopReaponse) Reset()         { *m = CreateLaptopReaponse{} }
 func (m *CreateLaptopReaponse) String() string { return proto.CompactTextString(m) }
 func (*CreateLaptopReaponse) ProtoMessage()    {}
 func (*CreateLaptopReaponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_240c60d9fb227e71, []int{1}
+	return fileDescriptor_240c60d9fb227e71, []int{2}
 }
 func (m *CreateLaptopReaponse) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
@@ -122,28 +170,82 @@ func (m *CreateLaptopReaponse) GetId() string {
 	return ""
 }
 
+// 搜索响应笔记本电脑信息
+type SearchLaptopResponse struct {
+	Laptop               *Laptop  `protobuf:"bytes,1,opt,name=laptop,proto3" json:"laptop,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *SearchLaptopResponse) Reset()         { *m = SearchLaptopResponse{} }
+func (m *SearchLaptopResponse) String() string { return proto.CompactTextString(m) }
+func (*SearchLaptopResponse) ProtoMessage()    {}
+func (*SearchLaptopResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_240c60d9fb227e71, []int{3}
+}
+func (m *SearchLaptopResponse) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *SearchLaptopResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_SearchLaptopResponse.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *SearchLaptopResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_SearchLaptopResponse.Merge(m, src)
+}
+func (m *SearchLaptopResponse) XXX_Size() int {
+	return m.Size()
+}
+func (m *SearchLaptopResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_SearchLaptopResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_SearchLaptopResponse proto.InternalMessageInfo
+
+func (m *SearchLaptopResponse) GetLaptop() *Laptop {
+	if m != nil {
+		return m.Laptop
+	}
+	return nil
+}
+
 func init() {
 	proto.RegisterType((*CreatLaptopRequest)(nil), "study.proto.CreatLaptopRequest")
+	proto.RegisterType((*SearchLaptopRequest)(nil), "study.proto.SearchLaptopRequest")
 	proto.RegisterType((*CreateLaptopReaponse)(nil), "study.proto.CreateLaptopReaponse")
+	proto.RegisterType((*SearchLaptopResponse)(nil), "study.proto.SearchLaptopResponse")
 }
 
 func init() { proto.RegisterFile("laptop_service.proto", fileDescriptor_240c60d9fb227e71) }
 
 var fileDescriptor_240c60d9fb227e71 = []byte{
-	// 194 bytes of a gzipped FileDescriptorProto
+	// 261 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xe2, 0x12, 0xc9, 0x49, 0x2c, 0x28,
 	0xc9, 0x2f, 0x88, 0x2f, 0x4e, 0x2d, 0x2a, 0xcb, 0x4c, 0x4e, 0xd5, 0x2b, 0x28, 0xca, 0x2f, 0xc9,
 	0x17, 0xe2, 0x2e, 0x2e, 0x29, 0x4d, 0xa9, 0x84, 0x70, 0xa4, 0x60, 0x4a, 0x72, 0x53, 0x8b, 0x8b,
-	0x13, 0xd3, 0xa1, 0x4a, 0x94, 0x1c, 0xb9, 0x84, 0x9c, 0x8b, 0x52, 0x13, 0x4b, 0x7c, 0xc0, 0x92,
-	0x41, 0xa9, 0x85, 0xa5, 0xa9, 0xc5, 0x25, 0x42, 0xda, 0x5c, 0x6c, 0x10, 0xd5, 0x12, 0x8c, 0x0a,
-	0x8c, 0x1a, 0xdc, 0x46, 0xc2, 0x7a, 0x48, 0x26, 0xe9, 0x41, 0xd5, 0x42, 0x95, 0x28, 0xa9, 0x71,
-	0x89, 0x80, 0x8d, 0x48, 0x85, 0x99, 0x91, 0x58, 0x90, 0x9f, 0x57, 0x9c, 0x2a, 0xc4, 0xc7, 0xc5,
-	0x94, 0x99, 0x02, 0x36, 0x80, 0x33, 0x88, 0x29, 0x33, 0xc5, 0x28, 0x85, 0x8b, 0x17, 0xa2, 0x22,
-	0x18, 0xe2, 0x48, 0xa1, 0x60, 0x2e, 0x6e, 0x24, 0xbb, 0x85, 0xe4, 0x51, 0x2c, 0xc1, 0x74, 0x95,
-	0x94, 0x22, 0xa6, 0x02, 0x34, 0x3b, 0x95, 0x18, 0x9c, 0x44, 0x4e, 0x3c, 0x92, 0x63, 0xbc, 0xf0,
-	0x48, 0x8e, 0xf1, 0xc1, 0x23, 0x39, 0xc6, 0x19, 0x8f, 0xe5, 0x18, 0xa2, 0x98, 0x0a, 0x92, 0x92,
-	0xd8, 0xc0, 0x7a, 0x8c, 0x01, 0x01, 0x00, 0x00, 0xff, 0xff, 0x3e, 0x95, 0x3d, 0x53, 0x28, 0x01,
-	0x00, 0x00,
+	0x13, 0xd3, 0x53, 0x61, 0xa2, 0x69, 0x99, 0x39, 0x25, 0xa9, 0x45, 0xa8, 0xa2, 0x4a, 0x8e, 0x5c,
+	0x42, 0xce, 0x45, 0xa9, 0x89, 0x25, 0x3e, 0x60, 0x2d, 0x41, 0xa9, 0x85, 0xa5, 0xa9, 0xc5, 0x25,
+	0x42, 0xda, 0x5c, 0x6c, 0x10, 0x33, 0x24, 0x18, 0x15, 0x18, 0x35, 0xb8, 0x8d, 0x84, 0xf5, 0x90,
+	0xcc, 0xd7, 0x83, 0xaa, 0x85, 0x2a, 0x51, 0x72, 0xe2, 0x12, 0x0e, 0x4e, 0x4d, 0x2c, 0x4a, 0xce,
+	0xc0, 0x30, 0x03, 0x62, 0x23, 0x56, 0x33, 0xdc, 0xc0, 0x52, 0x41, 0x50, 0x25, 0x4a, 0x6a, 0x5c,
+	0x22, 0x60, 0x67, 0xa4, 0xc2, 0xcc, 0x48, 0x2c, 0xc8, 0xcf, 0x2b, 0x4e, 0x15, 0xe2, 0xe3, 0x62,
+	0xca, 0x4c, 0x01, 0x1b, 0xc0, 0x19, 0xc4, 0x94, 0x99, 0xa2, 0xe4, 0xcc, 0x25, 0x82, 0x6a, 0x57,
+	0x31, 0x44, 0x1d, 0x29, 0x0e, 0x36, 0xda, 0xcb, 0xc8, 0xc5, 0x0b, 0x11, 0x0a, 0x86, 0x04, 0xa2,
+	0x50, 0x30, 0x17, 0x37, 0x52, 0x28, 0x08, 0xc9, 0xa3, 0xe8, 0xc6, 0x0c, 0x1f, 0x29, 0x45, 0x4c,
+	0x05, 0x68, 0x2e, 0x57, 0x62, 0x10, 0x0a, 0xe7, 0xe2, 0x41, 0x76, 0xab, 0x90, 0x02, 0x8a, 0x26,
+	0x2c, 0x41, 0x86, 0x66, 0x2c, 0x36, 0x8f, 0x2a, 0x31, 0x18, 0x30, 0x3a, 0x89, 0x9c, 0x78, 0x24,
+	0xc7, 0x78, 0xe1, 0x91, 0x1c, 0xe3, 0x83, 0x47, 0x72, 0x8c, 0x33, 0x1e, 0xcb, 0x31, 0x44, 0x31,
+	0x15, 0x24, 0x25, 0xb1, 0x81, 0x75, 0x19, 0x03, 0x02, 0x00, 0x00, 0xff, 0xff, 0x65, 0x7b, 0xd1,
+	0xa6, 0x21, 0x02, 0x00, 0x00,
 }
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -158,7 +260,10 @@ const _ = grpc.SupportPackageIsVersion4
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
 type LaptopServiceClient interface {
+	// 添加笔记本电脑信息的服务
 	CreatLaptop(ctx context.Context, in *CreatLaptopRequest, opts ...grpc.CallOption) (*CreateLaptopReaponse, error)
+	// 搜索笔记本电脑信息的服务, 以流的方式返回数据
+	SearchLaptop(ctx context.Context, in *SearchLaptopRequest, opts ...grpc.CallOption) (LaptopService_SearchLaptopClient, error)
 }
 
 type laptopServiceClient struct {
@@ -178,9 +283,44 @@ func (c *laptopServiceClient) CreatLaptop(ctx context.Context, in *CreatLaptopRe
 	return out, nil
 }
 
+func (c *laptopServiceClient) SearchLaptop(ctx context.Context, in *SearchLaptopRequest, opts ...grpc.CallOption) (LaptopService_SearchLaptopClient, error) {
+	stream, err := c.cc.NewStream(ctx, &_LaptopService_serviceDesc.Streams[0], "/study.proto.LaptopService/SearchLaptop", opts...)
+	if err != nil {
+		return nil, err
+	}
+	x := &laptopServiceSearchLaptopClient{stream}
+	if err := x.ClientStream.SendMsg(in); err != nil {
+		return nil, err
+	}
+	if err := x.ClientStream.CloseSend(); err != nil {
+		return nil, err
+	}
+	return x, nil
+}
+
+type LaptopService_SearchLaptopClient interface {
+	Recv() (*SearchLaptopResponse, error)
+	grpc.ClientStream
+}
+
+type laptopServiceSearchLaptopClient struct {
+	grpc.ClientStream
+}
+
+func (x *laptopServiceSearchLaptopClient) Recv() (*SearchLaptopResponse, error) {
+	m := new(SearchLaptopResponse)
+	if err := x.ClientStream.RecvMsg(m); err != nil {
+		return nil, err
+	}
+	return m, nil
+}
+
 // LaptopServiceServer is the server API for LaptopService service.
 type LaptopServiceServer interface {
+	// 添加笔记本电脑信息的服务
 	CreatLaptop(context.Context, *CreatLaptopRequest) (*CreateLaptopReaponse, error)
+	// 搜索笔记本电脑信息的服务, 以流的方式返回数据
+	SearchLaptop(*SearchLaptopRequest, LaptopService_SearchLaptopServer) error
 }
 
 // UnimplementedLaptopServiceServer can be embedded to have forward compatible implementations.
@@ -189,6 +329,9 @@ type UnimplementedLaptopServiceServer struct {
 
 func (*UnimplementedLaptopServiceServer) CreatLaptop(ctx context.Context, req *CreatLaptopRequest) (*CreateLaptopReaponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CreatLaptop not implemented")
+}
+func (*UnimplementedLaptopServiceServer) SearchLaptop(req *SearchLaptopRequest, srv LaptopService_SearchLaptopServer) error {
+	return status.Errorf(codes.Unimplemented, "method SearchLaptop not implemented")
 }
 
 func RegisterLaptopServiceServer(s *grpc.Server, srv LaptopServiceServer) {
@@ -213,6 +356,27 @@ func _LaptopService_CreatLaptop_Handler(srv interface{}, ctx context.Context, de
 	return interceptor(ctx, in, info, handler)
 }
 
+func _LaptopService_SearchLaptop_Handler(srv interface{}, stream grpc.ServerStream) error {
+	m := new(SearchLaptopRequest)
+	if err := stream.RecvMsg(m); err != nil {
+		return err
+	}
+	return srv.(LaptopServiceServer).SearchLaptop(m, &laptopServiceSearchLaptopServer{stream})
+}
+
+type LaptopService_SearchLaptopServer interface {
+	Send(*SearchLaptopResponse) error
+	grpc.ServerStream
+}
+
+type laptopServiceSearchLaptopServer struct {
+	grpc.ServerStream
+}
+
+func (x *laptopServiceSearchLaptopServer) Send(m *SearchLaptopResponse) error {
+	return x.ServerStream.SendMsg(m)
+}
+
 var _LaptopService_serviceDesc = grpc.ServiceDesc{
 	ServiceName: "study.proto.LaptopService",
 	HandlerType: (*LaptopServiceServer)(nil),
@@ -222,7 +386,13 @@ var _LaptopService_serviceDesc = grpc.ServiceDesc{
 			Handler:    _LaptopService_CreatLaptop_Handler,
 		},
 	},
-	Streams:  []grpc.StreamDesc{},
+	Streams: []grpc.StreamDesc{
+		{
+			StreamName:    "SearchLaptop",
+			Handler:       _LaptopService_SearchLaptop_Handler,
+			ServerStreams: true,
+		},
+	},
 	Metadata: "laptop_service.proto",
 }
 
@@ -253,6 +423,45 @@ func (m *CreatLaptopRequest) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	if m.Laptop != nil {
 		{
 			size, err := m.Laptop.MarshalToSizedBuffer(dAtA[:i])
+			if err != nil {
+				return 0, err
+			}
+			i -= size
+			i = encodeVarintLaptopService(dAtA, i, uint64(size))
+		}
+		i--
+		dAtA[i] = 0xa
+	}
+	return len(dAtA) - i, nil
+}
+
+func (m *SearchLaptopRequest) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *SearchLaptopRequest) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *SearchLaptopRequest) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	if m.XXX_unrecognized != nil {
+		i -= len(m.XXX_unrecognized)
+		copy(dAtA[i:], m.XXX_unrecognized)
+	}
+	if m.Filter != nil {
+		{
+			size, err := m.Filter.MarshalToSizedBuffer(dAtA[:i])
 			if err != nil {
 				return 0, err
 			}
@@ -299,6 +508,45 @@ func (m *CreateLaptopReaponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	return len(dAtA) - i, nil
 }
 
+func (m *SearchLaptopResponse) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *SearchLaptopResponse) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *SearchLaptopResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	if m.XXX_unrecognized != nil {
+		i -= len(m.XXX_unrecognized)
+		copy(dAtA[i:], m.XXX_unrecognized)
+	}
+	if m.Laptop != nil {
+		{
+			size, err := m.Laptop.MarshalToSizedBuffer(dAtA[:i])
+			if err != nil {
+				return 0, err
+			}
+			i -= size
+			i = encodeVarintLaptopService(dAtA, i, uint64(size))
+		}
+		i--
+		dAtA[i] = 0xa
+	}
+	return len(dAtA) - i, nil
+}
+
 func encodeVarintLaptopService(dAtA []byte, offset int, v uint64) int {
 	offset -= sovLaptopService(v)
 	base := offset
@@ -326,6 +574,22 @@ func (m *CreatLaptopRequest) Size() (n int) {
 	return n
 }
 
+func (m *SearchLaptopRequest) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	if m.Filter != nil {
+		l = m.Filter.Size()
+		n += 1 + l + sovLaptopService(uint64(l))
+	}
+	if m.XXX_unrecognized != nil {
+		n += len(m.XXX_unrecognized)
+	}
+	return n
+}
+
 func (m *CreateLaptopReaponse) Size() (n int) {
 	if m == nil {
 		return 0
@@ -334,6 +598,22 @@ func (m *CreateLaptopReaponse) Size() (n int) {
 	_ = l
 	l = len(m.Id)
 	if l > 0 {
+		n += 1 + l + sovLaptopService(uint64(l))
+	}
+	if m.XXX_unrecognized != nil {
+		n += len(m.XXX_unrecognized)
+	}
+	return n
+}
+
+func (m *SearchLaptopResponse) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	if m.Laptop != nil {
+		l = m.Laptop.Size()
 		n += 1 + l + sovLaptopService(uint64(l))
 	}
 	if m.XXX_unrecognized != nil {
@@ -435,6 +715,93 @@ func (m *CreatLaptopRequest) Unmarshal(dAtA []byte) error {
 	}
 	return nil
 }
+func (m *SearchLaptopRequest) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowLaptopService
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: SearchLaptopRequest: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: SearchLaptopRequest: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Filter", wireType)
+			}
+			var msglen int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowLaptopService
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				msglen |= int(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			if msglen < 0 {
+				return ErrInvalidLengthLaptopService
+			}
+			postIndex := iNdEx + msglen
+			if postIndex < 0 {
+				return ErrInvalidLengthLaptopService
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			if m.Filter == nil {
+				m.Filter = &Filter{}
+			}
+			if err := m.Filter.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+				return err
+			}
+			iNdEx = postIndex
+		default:
+			iNdEx = preIndex
+			skippy, err := skipLaptopService(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
+				return ErrInvalidLengthLaptopService
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
 func (m *CreateLaptopReaponse) Unmarshal(dAtA []byte) error {
 	l := len(dAtA)
 	iNdEx := 0
@@ -495,6 +862,93 @@ func (m *CreateLaptopReaponse) Unmarshal(dAtA []byte) error {
 				return io.ErrUnexpectedEOF
 			}
 			m.Id = string(dAtA[iNdEx:postIndex])
+			iNdEx = postIndex
+		default:
+			iNdEx = preIndex
+			skippy, err := skipLaptopService(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
+				return ErrInvalidLengthLaptopService
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.XXX_unrecognized = append(m.XXX_unrecognized, dAtA[iNdEx:iNdEx+skippy]...)
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *SearchLaptopResponse) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowLaptopService
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: SearchLaptopResponse: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: SearchLaptopResponse: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Laptop", wireType)
+			}
+			var msglen int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowLaptopService
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				msglen |= int(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			if msglen < 0 {
+				return ErrInvalidLengthLaptopService
+			}
+			postIndex := iNdEx + msglen
+			if postIndex < 0 {
+				return ErrInvalidLengthLaptopService
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			if m.Laptop == nil {
+				m.Laptop = &Laptop{}
+			}
+			if err := m.Laptop.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+				return err
+			}
 			iNdEx = postIndex
 		default:
 			iNdEx = preIndex

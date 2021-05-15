@@ -69,3 +69,27 @@ func (server *LaptopServer) CreatLaptop(ctx context.Context, req *pb.CreatLaptop
 	// 返回新的对象
 	return res, nil
 }
+
+func (server *LaptopServer) SearchLaptop(req *pb.SearchLaptopRequest, stream pb.LaptopService_SearchLaptopServer) error {
+	// 获取请求的过滤器
+	filter := req.Filter
+	log.Printf("receive a search-laptop request with  filter: %v", filter)
+	// 根据过滤器搜索不笔记本电脑数据
+	err := server.Store.Search(filter, func(laptop *pb.Laptop) error {
+		// 获取搜索响应数据
+		res := &pb.SearchLaptopResponse{Laptop: laptop}
+
+		// 发送流数据（rpc提供）
+		err := stream.Send(res)
+		if err != nil {
+			return err
+		}
+		return nil
+	})
+
+	// 如果搜索失败
+	if err != nil {
+		return status.Errorf(codes.Internal, "unexpected erro: %v", err)
+	}
+	return nil
+}

@@ -12,3 +12,6 @@ server:
 
 test:
 	go test -cover -race ./...
+
+to_home:
+	cd /home && ls -al

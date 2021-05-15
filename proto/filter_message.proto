@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package study.proto;
+
+option go_package = "pb";
+import "memory_message.proto";
+
+// 定义数据结构
+message Filter {
+  double max_price_usd = 1; // 美元价格
+  uint32 min_cpu_cores = 2; // cpu核数
+  double min_cpu_ghz = 3;   // 频率
+  Memory min_ram = 4;       // 运行内存
+}
